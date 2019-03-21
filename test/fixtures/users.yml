@@ -1,0 +1,4 @@
+logan:
+  name: Logan
+  email: logan@x-men.org
+  password_digest: <%=  User.new(password: '_hey_bub_').password_digest %>
