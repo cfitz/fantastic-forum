@@ -1,6 +1,14 @@
 # Fantatic Forum
 The exclusive platform for heroes. 
 
+
+To Do:
+- [ ] add documentation on adding Swagger for controllers/model 
+- [ ] add rest of controllers to swagger
+- [ ] add curl documentation
+- [x] add documentation for running tests
+- [x] update frontpage
+
 Key components:
 
 * Rails ( in API mode )
@@ -37,6 +45,13 @@ $ docker-compose up
 You should be able to see that the app is running on http://localhost:3000 with
 Swagger documentation at http://localhost:8080
 
+Running tests:
+
+```
+$ docker-compose run web rails test
+```
+
+Code coverage files will be added to the 'coverage' directory. 
 
 
 
