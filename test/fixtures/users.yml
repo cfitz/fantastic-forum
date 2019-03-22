@@ -2,3 +2,8 @@ logan:
   name: Logan
   email: logan@x-men.org
   password_digest: <%=  User.new(password: '_hey_bub_').password_digest %>
+
+vision:
+  name: Vision
+  email: victor@avengers.gov
+  password_digest: <%=  User.new(password: 'beholdthevision').password_digest %>

@@ -1,0 +1,61 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+logan1:
+  title: Wikipedia is pointing to wrong page
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+  
+logan2:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+  
+logan3:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+
+logan4:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+  
+logan5:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+
+logan6:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+
+logan7:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+  
+logan8:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+  
+logan9:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+
+logan10:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: logan 
+
+vision1:
+  title: Why Ultron so lame?
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: vision 
+  
+vision2:
+  title: <%= Faker::Hipster.sentence %>
+  body: <%= Faker::Hipster.paragraph(2) %>
+  user: vision 

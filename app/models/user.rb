@@ -1,6 +1,8 @@
 # frozen_string_literal: true
 
 class User < ApplicationRecord
+  has_many :topics, dependent: :destroy
+
   has_secure_password
   validates :email, :name,  :password, presence: true
   validates :email, uniqueness: true

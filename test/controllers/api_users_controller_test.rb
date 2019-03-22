@@ -2,7 +2,7 @@
 
 require "test_helper"
 
-class ApiUsersControllerTest < ActionDispatch::IntegrationTest
+class Api::V1::UsersControllerTest < ActionDispatch::IntegrationTest
   setup do
     @user = users(:logan)
   end

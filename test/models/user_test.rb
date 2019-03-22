@@ -40,4 +40,9 @@ class UserTest < ActiveSupport::TestCase
     spidey.email = "p.parker@daily-bulge.com"
     assert spidey.valid?
   end
+
+  test "users can have posts" do
+    assert_not @user.topics.nil?
+  end
+
 end
