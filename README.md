@@ -1,24 +1,43 @@
-# README
+# Fantatic Forum
+The exclusive platform for heroes. 
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Key components:
 
-Things you may want to cover:
+* Rails ( in API mode )
+* Using JWT Tokens ( via [knock](https://github.com/nsarno/knock) )
+* API documentation using [Swagger](https://swagger.io/)
+* Development environment in Docker / Docker Compose
 
-* Ruby version
+### Quick Start
 
-* System dependencies
+First checkout the repository and build your docker
 
-* Configuration
+```
+$ git clone https://github.com/cfitz/fantastic-forum.git 
+$ docker-compose build
+```
 
-* Database creation
+* Note: You will need to run build after you add gems to the Gemfile. 
 
-* Database initialization
+Now create your DB and seed it with some data:
 
-* How to run the test suite
+```
+$ docker-compose run web rails db:create db:migrate db:seed
+```
 
-* Services (job queues, cache servers, search engines, etc.)
+* Note: After creating the DB, Linux users might need to correct permission by
+  running 'sudo chown -R $USER:$USER .' 
 
-* Deployment instructions
+Start the application:
 
-* ...
+```
+$ docker-compose up
+```
+
+You should be able to see that the app is running on http://localhost:3000 with
+Swagger documentation at http://localhost:8080
+
+
+
+
+
