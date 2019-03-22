@@ -1,4 +1,4 @@
-# Fantatic Forum
+# Fantastic Forum
 The exclusive platform for heroes. 
 
 
@@ -74,7 +74,7 @@ Most actions require a JWT token ( more on that below ), with the exception of v
 $ curl http://localhost:3000/api/v1/topics 
 $ curl http://localhost:3000/api/v1/topics?page=2 
 $ curl http://localhost:3000/api/v1/topics/1 
-``
+```
 
 For Create/Update/Delete functions, users need to authenticate, which you will
 need a JWT token for. Check the login.json file for the format of JSON needed

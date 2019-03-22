@@ -10,7 +10,16 @@ class Api::ApiDocsController < ApplicationController
       key :version, "1.0.0"
       key :title, "Swagger Fantastic Forum"
       key :description, "API to post topics to the forum" \
-                        "demonstrate features in the swagger-2.0 specification"
+                        "To use JWT authentication, you'll need to generate a token from the API:" \
+                        "<br/><br/>" \
+                        "<b>e.g.:</b>" \
+                        "<br/><br/>" \
+                        "<code>" \
+                        '$ curl  -H "Content-Type: application/json" --data @login.json http://localhost:3000/api/v1/user/token | python -c "import sys, json; print json.load(sys.stdin)[\'jwt\']"' \
+                        "</code>" \
+                        "<br/><br/>" \
+                        "You can then take then token and add it to the dialog in the 'Authorize' dialog ( green button below and to the right  )"
+                        ""
       key :termsOfService, "http://fantastic.io"
       contact do
         key :name, "Chris Fitzpatrick"
