@@ -1,11 +1,12 @@
+# frozen_string_literal: true
+
 module Swagger::Topic
-	class << self
-	  def included(base)
-			base.include Swagger::Blocks
-   
+  class << self
+    def included(base)
+      base.include Swagger::Blocks
+
       # this defines our Model in Swagger.
       base.send(:swagger_component) do
-
         security_scheme :BearerAuth do
           key :type, :http
           key :scheme, :bearer
@@ -29,7 +30,7 @@ module Swagger::Topic
             key :type, :string
           end
         end
-        
+
         # This just defines our Model in Swagger as it's accepted in the
         # Controller. Not all attributes are taken as inputs.
         schema :TopicInput do
@@ -41,7 +42,6 @@ module Swagger::Topic
             key :type, :string
           end
         end
-
       end
     end
   end

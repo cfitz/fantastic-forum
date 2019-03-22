@@ -1,8 +1,9 @@
-require 'test_helper'
+# frozen_string_literal: true
+
+require "test_helper"
 
 
 class Api::V1::TopicsControllerTest < ActionDispatch::IntegrationTest
-
   setup do
     @logan = users(:logan)
     @vision = users(:vision)
@@ -20,29 +21,29 @@ class Api::V1::TopicsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should not allow unauthed users can create topics" do
-    assert_no_difference('Topic.count') do
+    assert_no_difference("Topic.count") do
       post api_v1_topics_url, params: {
-        title: 'What?', body: "Come on!" 
+        title: "What?", body: "Come on!"
       }
     end
     assert_response 401
   end
 
   test "should allow authed users can create topics" do
-    assert_difference('Topic.count') do
+    assert_difference("Topic.count") do
       post api_v1_topics_url, headers: authenticated_header(@logan), params: {
-         title: 'Best way to shave back?', body: "blah blah blah" 
+         title: "Best way to shave back?", body: "blah blah blah"
       }
     end
   end
-  
+
   test "should not allow authed users to create invalid topics" do
-    assert_no_difference('Topic.count') do
+    assert_no_difference("Topic.count") do
       post api_v1_topics_url, headers: authenticated_header(@logan), params: {}
     end
     assert_response 400
   end
-  
+
   test "should not allow authed users to modify topics with incorrect values" do
     original_title = @topic.title
     patch api_v1_topic_url(@topic.id), params: { title: nil }
@@ -81,27 +82,26 @@ class Api::V1::TopicsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should allow authors to delete topics" do
-    t2 = Topic.create(title: 'delete me', body: 'wont live long', user_id: @logan.id)
-    assert_difference('Topic.count', -1) do
+    t2 = Topic.create(title: "delete me", body: "wont live long", user_id: @logan.id)
+    assert_difference("Topic.count", -1) do
       delete api_v1_topic_url(t2), headers: authenticated_header(@logan)
     end
     assert_response :ok
   end
-  
+
   test "should not allow non-authors to delete topics" do
-    t2 = Topic.create(title: 'delete me', body: 'wont live long', user_id: @logan.id)
-    assert_no_difference('Topic.count') do
+    t2 = Topic.create(title: "delete me", body: "wont live long", user_id: @logan.id)
+    assert_no_difference("Topic.count") do
       delete api_v1_topic_url(t2), headers: authenticated_header(@vision)
     end
     assert_response 401
   end
-  
+
   test "should not allow non-authed to delete topics" do
-    t2 = Topic.create(title: 'delete me', body: 'wont live long', user_id: @logan.id)
-    assert_no_difference('Topic.count') do
+    t2 = Topic.create(title: "delete me", body: "wont live long", user_id: @logan.id)
+    assert_no_difference("Topic.count") do
       delete api_v1_topic_url(t2)
     end
     assert_response 401
   end
-
 end

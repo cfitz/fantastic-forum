@@ -1,10 +1,10 @@
 # frozen_string_literal: true
 
-require 'simplecov'
+require "simplecov"
 SimpleCov.formatters = [
   SimpleCov::Formatter::HTMLFormatter,
 ]
-SimpleCov.start 'rails'
+SimpleCov.start "rails"
 
 ENV["RAILS_ENV"] ||= "test"
 require_relative "../config/environment"

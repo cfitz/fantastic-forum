@@ -1,4 +1,6 @@
-require_relative 'swagger/topics_controller'
+# frozen_string_literal: true
+
+require_relative "swagger/topics_controller"
 class Api::V1::TopicsController < ApplicationController
   before_action :set_topic, only: %i(show update destroy)
   skip_before_action :authenticate_user, only: %i( index show )
@@ -47,7 +49,7 @@ class Api::V1::TopicsController < ApplicationController
     def topic_params
       params.permit(:title, :body)
     end
-    
+
     def set_topic
       @topic = Topic.find(params[:id])
     end

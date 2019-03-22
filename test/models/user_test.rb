@@ -44,5 +44,4 @@ class UserTest < ActiveSupport::TestCase
   test "users can have posts" do
     assert_not @user.topics.nil?
   end
-
 end
