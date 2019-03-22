@@ -6,6 +6,7 @@ class ApplicationController < ActionController::API
   include Pundit
   rescue_from Pundit::NotAuthorizedError, with: :unauthorized
   rescue_from ActiveRecord::RecordNotFound, with: :unauthorized
+  # for out API, we will disable CSRF (for now?)
 
   private
 

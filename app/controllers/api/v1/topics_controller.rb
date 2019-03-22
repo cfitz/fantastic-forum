@@ -1,10 +1,13 @@
+require_relative 'swagger/topics_controller'
 class Api::V1::TopicsController < ApplicationController
   before_action :set_topic, only: %i(show update destroy)
   skip_before_action :authenticate_user, only: %i( index show )
 
+  include Swaggable
+
   def index
     topics = Topic.includes(:user).all
-    paginate json: topics
+    paginate json: topics.as_json
   end
 
   def show

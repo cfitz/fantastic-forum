@@ -32,9 +32,13 @@ gem 'kaminari'
 gem 'pundit'
 
 # Use Rack CORS for handling Cross-Origin Resource Sharing (CORS), making cross-origin AJAX possible
-# gem 'rack-cors'
+gem 'rack-cors'
+
+# This adds JSON token support
 gem "knock"
 
+# For building API documentation
+gem 'swagger-blocks', git: 'https://github.com/gabrieltaylor/swagger-blocks.git', branch: 'gtr/openapi-3'
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
   gem "byebug", platforms: [:mri, :mingw, :x64_mingw]
