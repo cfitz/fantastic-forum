@@ -36,6 +36,13 @@ class Api::V1::TopicsControllerTest < ActionDispatch::IntegrationTest
     end
   end
   
+  test "should not allow authed users to create invalid topics" do
+    assert_no_difference('Topic.count') do
+      post api_v1_topics_url, headers: authenticated_header(@logan), params: {}
+    end
+    assert_response 400
+  end
+  
   test "should not allow authed users to modify topics with incorrect values" do
     original_title = @topic.title
     patch api_v1_topic_url(@topic.id), params: { title: nil }
@@ -47,13 +54,21 @@ class Api::V1::TopicsControllerTest < ActionDispatch::IntegrationTest
     original_title = @topic.title
     patch api_v1_topic_url(@topic.id), params: { title: "D'Oh!" }
     assert_equal original_title, Topic.find(@topic.id).title
-    assert_response 400
+    assert_response 401
   end
 
   test "should only allow authors to modify topics" do
     patch api_v1_topic_url(@topic.id), headers: authenticated_header(@logan),
       params: { title: "Changed!" }
     assert_equal "Changed!", Topic.find(@topic.id).title
+  end
+
+  test "should not allow authors to modify topics with invalid data" do
+    original_title = @topic.title
+    patch api_v1_topic_url(@topic.id), headers: authenticated_header(@logan),
+      params: { title: nil }
+    assert_response 400
+    assert_equal original_title, Topic.find(@topic.id).title
   end
 
   test "should not allow non-authors to modify topics" do
