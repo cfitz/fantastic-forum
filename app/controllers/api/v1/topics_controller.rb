@@ -21,7 +21,8 @@ class Api::V1::TopicsController < ApplicationController
     if @topic.save
       render json: @topic.as_json
     else
-      render json: @topic.errors.messages.as_json, status: 400
+      render(json: ErrorResponse.new(code: 400, message: @topic.errors.messages).as_json,
+             status: 400)
     end
   end
 
@@ -30,7 +31,8 @@ class Api::V1::TopicsController < ApplicationController
     if @topic.update(topic_params)
       render json: @topic.as_json
     else
-      render json: @topic.errors.messages.as_json, status: 400
+      render(json: ErrorResponse.new(code: 400, message: @topic.errors.messages).as_json,
+             status: 400)
     end
   end
 
@@ -40,7 +42,7 @@ class Api::V1::TopicsController < ApplicationController
     if @topic.destroy
       head :ok
     else
-      render json: @topic.errors.messages.as_json, status: 400
+      render json: ErrorResponse.new(code: 400, message: @topic.errors.messages), status: 400
     end
   end
 

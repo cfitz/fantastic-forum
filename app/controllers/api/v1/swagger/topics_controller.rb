@@ -27,6 +27,12 @@ module Api::V1::Swagger::TopicsController
               key :'$ref', :Topic
             end
           end
+          response :default do
+            key :description, "unexpected error"
+            schema do
+              key :'$ref', :ErrorResponse
+            end
+          end
         end
 
         operation :post do
@@ -48,6 +54,12 @@ module Api::V1::Swagger::TopicsController
             key :description, "topic response"
             schema do
               key :'$ref', :Topic
+            end
+          end
+          response :default do
+            key :description, "unexpected error"
+            schema do
+              key :'$ref', :ErrorResponse
             end
           end
         end
@@ -81,6 +93,12 @@ module Api::V1::Swagger::TopicsController
               key :'$ref', :Topic
             end
           end
+          response :default do
+            key :description, "unexpected error"
+            schema do
+              key :'$ref', :ErrorResponse
+            end
+          end
         end
 
         operation :delete do
@@ -94,7 +112,7 @@ module Api::V1::Swagger::TopicsController
           response :default do
             key :description, "unexpected error"
             schema do
-              key :'$ref', :ErrorModel
+              key :'$ref', :ErrorResponse
             end
           end
         end

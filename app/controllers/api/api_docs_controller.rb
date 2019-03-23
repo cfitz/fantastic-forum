@@ -66,6 +66,7 @@ class Api::ApiDocsController < ApplicationController
     Api::V1::UsersController,
     Topic,
     User,
+    ErrorResponse,
     self,
   ].freeze
 
