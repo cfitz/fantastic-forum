@@ -4,10 +4,12 @@ The exclusive platform for heroes.
 
 To Do:
 - [x] add documentation on adding Swagger for controllers/model 
-- [ ] add rest of controllers to swagger
+- [x] add rest of controllers to swagger
 - [x] add curl documentation
 - [x] add documentation for running tests
 - [x] update frontpage
+- [ ] improve controller error messages 
+- [ ] add a basic gui 
 
 Key components:
 
@@ -118,6 +120,9 @@ your controller to be exported in the openapi JSON.
 For models, the process is similar: Create a Swagger superclassed module that
 matches you Model class ( for Topic this would be Swagger::Topic ), then
 include SwaggerModel in your Model class. 
+
+Then include the class that has been documented in the api_docs_controller.rb
+SWAGGERED_CLASSES array to expose the JSON to the Swagger app. 
 
 This will this be available in the Swagger app ( running on
 http://localhost:8080 )
