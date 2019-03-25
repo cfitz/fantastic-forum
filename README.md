@@ -8,8 +8,9 @@ To Do:
 - [x] add curl documentation
 - [x] add documentation for running tests
 - [x] update frontpage
-- [ ] improve controller error messages 
-- [ ] add a basic gui 
+- [x] improve controller error messages 
+- [x] add a basic gui 
+- [ ] add authentication flow to GUI
 
 Key components:
 
@@ -94,10 +95,10 @@ The result is your bearer token that you can use in the API:
 $ AUTH="Authorization: Bearer $TOKEN"
 $ curl -X POST -H "Content-Type: application/json" -H $AUTH --data @topic.json
 http://localhost:3000/api/v1/topics
-$ curl -X DELETE -H "Content-Type: application/json" -H $AUTH --data @topic.json
-http://localhost:3000/api/v1/topics
 $ curl -X PATCH -H "Content-Type: application/json" -H $AUTH --data @topic.json
 http://localhost:3000/api/v1/topics/3
+$ curl -X DELETE -H "Content-Type: application/json" -H $AUTH 
+http://localhost:3000/api/v1/topics
 ```
 
 
@@ -126,3 +127,16 @@ SWAGGERED_CLASSES array to expose the JSON to the Swagger app.
 
 This will this be available in the Swagger app ( running on
 http://localhost:8080 )
+
+## React Frontend
+
+There is a React frontend included in the 'client' directory that can be used
+to test out the API. With the docker-compose running, launch the frontend: 
+
+```
+$ yarn 
+$ yarn run start 
+```
+
+And go to http://localhost:3001. To change the backend port, adjust the setting
+in the .env file
