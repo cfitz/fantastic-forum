@@ -8,7 +8,7 @@ class Api::V1::TopicsController < ApplicationController
   include Swaggable
 
   def index
-    topics = Topic.includes(:user).all
+    topics = Topic.includes(:user).page(params[:page]).per(params[:per_page])
     paginate json: topics.as_json
   end
 

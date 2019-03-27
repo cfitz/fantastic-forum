@@ -69,7 +69,7 @@ class Api::V1::TopicsControllerTest < ActionDispatch::IntegrationTest
     patch api_v1_topic_url(@topic.id), headers: authenticated_header(@logan),
       params: { title: nil }
     assert_response 400
-    assert_equal 400, @response.parsed_body['code']
+    assert_equal 400, @response.parsed_body["code"]
     assert_equal original_title, Topic.find(@topic.id).title
   end
 

@@ -7,6 +7,6 @@ class ErrorResponseTest < ActiveSupport::TestCase
     error = ErrorResponse.new(code: 401, message: "oops")
     json = error.as_json
     assert_equal 401, json[:code]
-    assert_equal 'oops', json[:message]
+    assert_equal "oops", json[:message]
   end
 end
